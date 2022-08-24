@@ -50,7 +50,7 @@ EXTERNAL_APPS = [
     "drf_yasg",
 ]
 
-PROJECT_APPS = ["courses"]
+PROJECT_APPS = ["courses", "accounts"]
 
 INSTALLED_APPS = CONTRIB_APPS + EXTERNAL_APPS + PROJECT_APPS
 
@@ -119,6 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = "accounts.User"
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
