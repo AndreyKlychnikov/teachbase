@@ -10,14 +10,14 @@ class SectionSerializer(serializers.ModelSerializer):
 
 
 class CourseSerializer(serializers.ModelSerializer):
-    sections = SectionSerializer(many=True)
+    sections = SectionSerializer(many=True, required=False)
 
     class Meta:
         model = Course
         fields = "__all__"
 
     def create(self, validated_data):
-        sections_data = validated_data.pop("sections")
+        sections_data = validated_data.pop("sections", [])
         course = Course.objects.create(**validated_data)
         sections = []
         for section_data in sections_data:
